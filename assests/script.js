@@ -2,7 +2,7 @@
 
 //timer for the quiz
 var timer = document.querySelector('.timer');
-var timerStart = 100;
+var timerStart = 5;
 
 //quiz variables
 
@@ -41,52 +41,61 @@ var quizQuestions = [
 function setTime() {
     var timerInterval = setInterval(function() {
         timerStart--;
-        timer.textContent = timerStart + " seconds left!";
+       
+        timer.textContent = timerStart + ' seconds left!';
 
         if(timerStart === 0) {
-            clearInterval(timerInterval);
+          clearInterval(timerInterval);
         }
     }, 1000);
 }
 
 //generate quiz
-
-generateQuiz(quizQuestions, quizContainer, resultsContainer, submitButton);
-
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
   function showQuestions(questions, quizContainer){
+    //output array that is empty so that the questions can be pushed into it
     var output = [];
     var answers;
 
     for(var i=0; i<questions.length; i++){
-     
+      //answers array that is empty so that possible answers can be pushed into it
       answers = [];
 
       for(letter in questions[i].answers){
+        //puts in the answers to quizQuestions in a multiple choice style select
         answers.push(
-          '<label>'
+            '<label>'
             + '<input type="radio" name="question'+i+'" value="'+letter+'">'
-            + letter + ': '
+            + letter 
+            + ': '
             + questions[i].answers[letter]
-          + '</label>'
+            + '</label>'
         );
       }
+      //puts the questions in quizQuestions and the answers into the output
       output.push(
-        '<div class="question">' + questions[i].question + '</div>'
-        + '<div class="answers">' + answers.join('') + '</div>'
+        '<div class="question">' 
+        + questions[i].question 
+        + '</div>'
+        + '<div class="answers">' 
+        + answers.join('') 
+        + '</div>'
       );
     }
+    //puts output into one string of html on the page
     quizContainer.innerHTML = output.join('');
   }
 
   function showResults(questions, quizContainer, resultsContainer){
+    //takes the answers from the quizContainer
     var answerContainers = quizContainer.querySelectorAll('.answers');
     
+    //keeps track of the users inputs
     var userAnswer = '';
     var numCorrect = 0;
     
-    
+    //finds the selected answer and determines if it is correct or not
     for(var i=0; i<questions.length; i++){
       userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
 
@@ -98,16 +107,28 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
       }
     }
 
+    //shows number of correct answers out of the total
     resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
   }
 
+  //runs the showQuestions function
   showQuestions(questions, quizContainer);
   
+  //when submit button is clicked, results are shown
   submitButton.onclick = function(){
     showResults(questions, quizContainer, resultsContainer);
   }
 
 }
 
-generateQuiz(quizQuestions, quizContainer, resultsContainer, submitButton);
-setTime();
+//function to show submit button
+function addSubmit() {
+  document.getElementById('submitButton').style.display = 'block';
+}
+
+//function to start timer and quiz
+function startTimer() {
+  setTime();
+  generateQuiz(quizQuestions, quizContainer, resultsContainer, submitButton);
+  addSubmit();
+}

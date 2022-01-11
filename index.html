@@ -10,7 +10,11 @@
 <body>
 
     <header>
-        <h1 class='timer'></h1>
+        <h1 class='timer'>
+            <button onclick='startTimer()' id='startButton'>
+                START
+            </button>
+        </h1>
         <nav id='viewScore'>
             <a id='highScores'>Highscores</a>
         </nav>
@@ -18,7 +22,9 @@
 
     <section id='quizSection'></section>
 
-    <button id='submitButton'></button>
+    <button id='submitButton'>
+        SUBMIT ANSWER
+    </button>
     
     <section id='resultsSection'></section>
 
