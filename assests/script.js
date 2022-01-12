@@ -55,7 +55,66 @@ startTimer.addEventListener("click",function() {
       }
     }, 1000);
   }
-  render(questionIndex);
+  showQuestion(questionIndex);
 })
 
+//function to render all questions to page with a for loop
+function showQuestion(questionIndex) {
+  //clear existing data
+  quiz.innerHTML = "";
+  newUl.innerHTML = "";
+
+  for (var i = 0; i < quizQuestions.length; i++) {
+    //adds variables to include the questions and answers
+    var userQuestion = quizQuestions[questionIndex].question;
+    var userAnswers = quizQuestions[questionIndex].answers;
+    //user sees a question brought out by the for loop
+    quiz.textContent = userQuestion;
+  }
+
+  //grabs to create choices for each question that comes up
+  userAnswers.forEach(function (newAnswer) {
+    var newLi = document.createElement("li");
+    newLi.textContent = newAnswer;
+    quiz.appendChild(newUl);
+    newUl.appendChild(newLi);
+    newLi.addEventListener("click", (checkAnswer));
+  })
+}
+
+//function to check if answer is correct
+function checkAnswer(event) {
+  var check = event.target;
+
+  if (check.matches("li")) {
+    var makeDiv = document.createElement("div");
+    makeDiv.setAttribute("id", "makeDiv");
+
+    if (check.textContent == quizQuestions[questionIndex].correctAnswer) {
+      score++;
+      makeDiv.textContent = "Nice job! You are correct!";
+    } else {
+      //user will lose time if the answer is wrong
+      timeTotal = timeTotal - timeLoss;
+      makeDiv.textContent = "Oof, that answer is going to hurt you!";
+    }
+  }
+  //makes sure questions move to the next in order
+  questionIndex++;
+
+  //shows score when quiz is complete
+  if (questionIndex >= quizQuestions.length) {
+    quizComplete();
+    makeDiv.textContent = "You are all done! " + "Your score: " + score + "/" + quizQuestions.length + " :)";
+  } else {
+    showQuestion(questionIndex);
+  }
+
+  quiz.appendChild(makeDiv);
+}
+
+//function to show last page when quiz is complete
+function quizComplete() {
+  
+}
 
