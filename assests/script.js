@@ -151,6 +151,7 @@ function quizComplete() {
   makeButton.setAttribute("id", "submitButton");
   makeButton.textContent = "SUBMIT";
 
+  //append
   quiz.appendChild(makeH1);
   quiz.appendChild(makeP);
   quiz.appendChild(makeP2);
