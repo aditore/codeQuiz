@@ -158,5 +158,35 @@ function quizComplete() {
   quiz.appendChild(makeLabel);
   quiz.appendChild(makeInput);
   quiz.appendChild(makeButton);
-}
 
+  //submit button event listener to store highscores
+  makeButton.addEventListener("click", function() {
+    var init = makeInput.value;
+
+    //prevents a null operation and creates new object that holds the current initials and score
+    if (init === null) {
+      console.log("No initials provided.");
+    } else {
+     var totalScore = {
+        initials: init,
+        timeScore: timeTotal + score
+      }
+    }
+    console.log(totalScore);
+
+    var allScore = localStorage.getItem("allScore");
+    //prevents a null operation and creates a variable that carries the current initials and score and stores them within the browser
+    if (allScore === null) {
+      allScore = [];
+    } else {
+      allScore = JSON.parse(allScore);
+    }
+
+    allScore.push(totalScore);
+
+    var newScore = JSON.stringify(allScore);
+    localStorage.setItem("allScore", newScore);
+
+
+  });
+}
