@@ -42,12 +42,12 @@ var quizQuestions = [
 
 //timer function for start button
 startTimer.addEventListener("click",function() {
-  if(timeDone === 0) {
+  if (timeDone === 0) {
     timeDone = setInterval(function() {
       timeTotal--;
       timer.textContent = "Time Remaining -- " + timeTotal + " seconds left";
 
-      if(timeTotal === 1) {
+      if (timeTotal === 1) {
         timer.textContent = "Time Remaining -- " + timeTotal + " second left!";
       } else if (timeTotal <= 0) {
         clearInterval(timeDone);
@@ -105,7 +105,7 @@ function checkAnswer(event) {
   //shows score when quiz is complete
   if (questionIndex >= quizQuestions.length) {
     quizComplete();
-    makeDiv.textContent = "You are all done! " + "Your score: " + score + "/" + quizQuestions.length + " :)";
+    makeDiv.textContent = "You are all done! " + "The questions you got correct: " + score + "/" + quizQuestions.length + " :)";
   } else {
     showQuestion(questionIndex);
   }
@@ -115,6 +115,47 @@ function checkAnswer(event) {
 
 //function to show last page when quiz is complete
 function quizComplete() {
-  
+  quiz.innerHTML = "";
+  timer.innerHTML = "";
+
+  //header
+  var makeH1 = document.createElement("h1");
+  makeH1.setAttribute("id", "makeH1");
+  makeH1.textContent = "Phew, you finished!";
+
+  //paragraph for time score
+  var makeP = document.createElement("p");
+  makeP.setAttribute("id", "makeP");
+
+  if (timeTotal >= 0) {
+    var timeScore = timeTotal + score;
+    var makeP2 = document.createElement("p");
+    clearInterval(timeDone);
+    makeP.textContent = "Your time left combined with your score: " + timeScore;
+  }
+
+  //label
+  var makeLabel = document.createElement("label");
+  makeLabel.setAttribute("id", "makeLabel");
+  makeLabel.textContent = "Enter your initials: ";
+
+  //input into label
+  var makeInput = document.createElement("input");
+  makeInput.setAttribute("type", "text");
+  makeInput.setAttribute("id", "initials");
+  makeInput.textContent = "";
+
+  //submit button
+  var makeButton = document.createElement("button");
+  makeButton.setAttribute("type", "submit");
+  makeButton.setAttribute("id", "submitButton");
+  makeButton.textContent = "SUBMIT";
+
+  quiz.appendChild(makeH1);
+  quiz.appendChild(makeP);
+  quiz.appendChild(makeP2);
+  quiz.appendChild(makeLabel);
+  quiz.appendChild(makeInput);
+  quiz.appendChild(makeButton);
 }
 
