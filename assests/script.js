@@ -17,24 +17,74 @@ var newUl = document.createElement("ul");
 //questions to be rotated through
 var quizQuestions = [ 
     {
-        question: 'What function allows you to add to a parent of the HTML?',
-        answers: [
-            'setTime()',
-            'setAttribute()',
-            'getElementById()',
-            'appendChild()'
-        ],
-        correctAnswer: 'appendChild()'
+      question: 'What function allows you to add to a parent of the HTML?',
+      answers: [
+          'setTime()',
+          'setAttribute()',
+          'getElementById()',
+          'appendChild()'
+      ],
+      correctAnswer: 'appendChild()'
     },
     {
-        question: 'What is the notation most commonly used to name variables?',
-        answers: [
-            'camelCase',
-            'lowercase',
-            'UpperCase',
-            'BOLD'
-        ],
-        correctAnswer: 'camelCase'
+      question: 'What is the notation most commonly used to name variables?',
+      answers: [
+          'camelCase',
+          'lowercase',
+          'UpperCase',
+          'BOLD'
+      ],
+      correctAnswer: 'camelCase'
+    },
+    {
+      question: 'Commonly used data types DO NOT include:',
+      answers: [
+          'strings',
+          'booleans',
+          'alerts',
+          'numbers'
+      ],
+      correctAnswer: 'alerts'
+    },
+    {
+      question: 'The condition in an if / else statement is enclosed within ____.',
+      answers: [
+          'quotes',
+          'curly brackets',
+          'parentheses',
+          'square brackets'
+      ],
+      correctAnswer: 'parentheses'
+    },
+    {
+      question: 'Arrays in JavaScript can be used to store ____.',
+      answers: [
+          'numbers and strings',
+          'other arrays',
+          'booleans',
+          'all of the above'
+      ],
+      correctAnswer: 'all of the above'
+    },
+    {
+      question: 'String values must be enclosed within ____ when being assigned to variables.',
+      answers: [
+          'commas',
+          'curly brackets',
+          'quotes',
+          'parentheses'
+      ],
+      correctAnswer: 'quotes'
+    },
+    {
+      question: 'A very useful tool used during development and debugging for printing content to the debugger is:',
+      answers: [
+          'JavaScript',
+          'terminal / bash',
+          'for loops',
+          'console.log'
+      ],
+      correctAnswer: 'console.log'
     }
 ];
 
@@ -72,10 +122,11 @@ function showQuestion(questionIndex) {
     quiz.textContent = userQuestion;
   }
 
-  //grabs to create choices for each question that comes up
+  //creates an li for each possible answer within the quizQuestions object
   userAnswers.forEach(function (newAnswer) {
     var newLi = document.createElement("li");
     newLi.textContent = newAnswer;
+    //appends each new li item created
     quiz.appendChild(newUl);
     newUl.appendChild(newLi);
     newLi.addEventListener("click", (checkAnswer));
@@ -86,10 +137,12 @@ function showQuestion(questionIndex) {
 function checkAnswer(event) {
   var check = event.target;
 
+  //checks if the created li is the correct answer on click
   if (check.matches("li")) {
     var makeDiv = document.createElement("div");
     makeDiv.setAttribute("id", "makeDiv");
 
+    //adds to score if answer is correct
     if (check.textContent == quizQuestions[questionIndex].correctAnswer) {
       score++;
       makeDiv.textContent = "Nice job! You are correct!";
@@ -102,7 +155,7 @@ function checkAnswer(event) {
   //makes sure questions move to the next in order
   questionIndex++;
 
-  //shows score when quiz is complete
+  //shows score when quiz is complete in format x/quizQuestions(total length)
   if (questionIndex >= quizQuestions.length) {
     quizComplete();
     makeDiv.textContent = "You are all done! " + "The questions you got correct: " + score + "/" + quizQuestions.length + " :)";
@@ -110,10 +163,11 @@ function checkAnswer(event) {
     showQuestion(questionIndex);
   }
 
+  //appends the div created to show message
   quiz.appendChild(makeDiv);
 }
 
-//function to show last page when quiz is complete
+//function to show and append last page when quiz is complete
 function quizComplete() {
   quiz.innerHTML = "";
   timer.innerHTML = "";
@@ -187,6 +241,7 @@ function quizComplete() {
     var newScore = JSON.stringify(allScore);
     localStorage.setItem("allScore", newScore);
 
-
+    //brings scores to highScores html
+    window.location.replace("./highScores.html");
   });
 }
