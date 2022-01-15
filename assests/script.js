@@ -237,7 +237,7 @@ function quizComplete() {
     }
 
     allScore.push(totalScore);
-
+    
     var newScore = JSON.stringify(allScore);
     localStorage.setItem("allScore", newScore);
 
