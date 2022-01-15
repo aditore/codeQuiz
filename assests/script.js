@@ -102,6 +102,13 @@ startTimer.addEventListener("click",function() {
       } else if (timeTotal <= 0) {
         clearInterval(timeDone);
         timer.textContent = "Hope you're happy with your answers!";
+        //if timer hits zero go to initials page
+        quizComplete();
+        //show message
+        makeDiv.textContent = "You are all done! Please submit your initials into the system above." + "The questions you got correct: " + score + "/" + quizQuestions.length + " :)";
+
+        //append
+        quiz.appendChild(makeDiv);
       }
     }, 1000);
   }
@@ -158,7 +165,7 @@ function checkAnswer(event) {
   //shows score when quiz is complete in format x/quizQuestions(total length)
   if (questionIndex >= quizQuestions.length) {
     quizComplete();
-    makeDiv.textContent = "You are all done! " + "The questions you got correct: " + score + "/" + quizQuestions.length + " :)";
+    makeDiv.textContent = "You are all done! Please submit your initials into the system above." + "The questions you got correct: " + score + "/" + quizQuestions.length + " :)";
   } else {
     showQuestion(questionIndex);
   }
@@ -186,6 +193,8 @@ function quizComplete() {
     var makeP2 = document.createElement("p");
     clearInterval(timeDone);
     makeP.textContent = "Your time left combined with your score: " + timeScore;
+
+    quiz.appendChild(makeP2);
   }
 
   //label
@@ -208,7 +217,6 @@ function quizComplete() {
   //append
   quiz.appendChild(makeH1);
   quiz.appendChild(makeP);
-  quiz.appendChild(makeP2);
   quiz.appendChild(makeLabel);
   quiz.appendChild(makeInput);
   quiz.appendChild(makeButton);
