@@ -12,21 +12,21 @@ I learned how to target variables within the realm of scope, to create a timer t
 
 This quiz is developed to have a start button that deploys a timer and creates quiz questions that move from one to the next as they are answered.
 
-!alt[start_screen](assets/images/start_screen.jpg)
+!alt[start_screen](./assets/images/start_screen.jpg)
 
-!alt[first_question](assets/images/first_question.jpg)
+!alt[first_question](./assets/images/first_question.jpg)
 
 The timer will continue as normal or lose time if a question is incorrect.
 
-!alt[correct_answer](assets/images/correct_answer.jpg)
+!alt[correct_answer](./assets/images/correct_answer.jpg)
 
-!alt[wrong_answer](assets/images/wrong_answer.jpg)
+!alt[wrong_answer](./assets/images/wrong_answer.jpg)
 
 When the quiz is finished, the user can store their initials in local storage or try again.
 
-!alt[finish](assets/images/finish.jpg)
+!alt[finish](./assets/images/finish.jpg)
 
 After storing initials, the user can view their and any other scores stored in the system. They can also clear the highscores or return to the start of the quiz.
 
-!alt[highscores](assets/images/highscores.jpg)
+!alt[highscores](./assets/images/highscores.jpg)
 
