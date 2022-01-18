@@ -6,6 +6,7 @@
     position: relative;
 }
 
+/* quiz placement on screen and style */
 header {
     display: flex;
     justify-content: flex-end;
@@ -55,6 +56,7 @@ li {
     margin: 5px;
 }
 
+/* by id */
 #quiz {
     color: black;
     font-weight: bold;
