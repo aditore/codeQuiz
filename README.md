@@ -1,5 +1,9 @@
 # codeQuiz
-homework 4 of uw bootcamp
+
+## Link
+
+https://aditore.github.io/codeQuiz/
+
 ## Description
 
 For the 4th (technically 3rd) homework for UW-bootcamp we were required to build a functional quiz using JavaScript.
