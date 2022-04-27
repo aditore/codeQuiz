@@ -1,16 +1,25 @@
 # codeQuiz
 
-## Link
-
-https://aditore.github.io/codeQuiz/
-
 ## Description
 
-For the 4th (technically 3rd) homework for UW-bootcamp we were required to build a functional quiz using JavaScript.
+This app is a code quiz built primarily in JavaScript to showcase some skills I have learned. </br>
+This was built to develop my skills by building functions within JavaScript and</br>
+to practice my skills at problem solving to build working code.</br>
 
-This was built to develop my skills in building functions within JavaScript and to practice my skills at problem solving to build working code.
+## Learned
 
-I learned how to target variables within the realm of scope, to create a timer that has functionality built within it and how to link all my pages together to build a working website.
+- Linking all my pages together to build a working website
+- Targeting variables within the realm of scope
+- Creating a timer that has functionality built within the quiz itself
+- Saving to local storage
+- Pulling data from local storage
+
+## Table of Contents
+
+- [Description](#description)
+- [Learned](#learned)
+- [Usage](#usage)
+- [Credits](#credits)
 
 ## Usage
 
@@ -34,3 +43,8 @@ After storing initials, the user can view their and any other scores stored in t
 
 ![highscores](./assets/images/highscores.png)
 
+## Credits
+
+Deployed website can be found at: https://aditore.github.io/codeQuiz</br>
+</br>
+Code by: [aditore](https://github.com/aditore)
