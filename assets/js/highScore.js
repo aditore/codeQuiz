@@ -7,7 +7,7 @@ var clear = document.getElementById('clear');
 /* functionality and functions */
 //goes back to the main index.html file
 previousPage.addEventListener("click", function () {
-    window.location.replace("./index.html");
+    window.location.replace("../../index.html");
 })
 
 //clears the local storage
