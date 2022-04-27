@@ -1,5 +1,9 @@
 # codeQuiz
-homework 4 of uw bootcamp
+
+## Link
+
+https://aditore.github.io/codeQuiz/
+
 ## Description
 
 For the 4th (technically 3rd) homework for UW-bootcamp we were required to build a functional quiz using JavaScript.
@@ -12,21 +16,21 @@ I learned how to target variables within the realm of scope, to create a timer t
 
 This quiz is developed to have a start button that deploys a timer and creates quiz questions that move from one to the next as they are answered.
 
-!alt[start_screen](./assets/images/start_screen.png)
+![start_screen](./assets/images/start_screen.png)
 
-!alt[first_question](./assets/images/first_question.png)
+![first_question](./assets/images/first_question.png)
 
 The timer will continue as normal or lose time if a question is incorrect.
 
-!alt[correct_answer](./assets/images/correct_answer.png)
+![correct_answer](./assets/images/correct_answer.png)
 
-!alt[wrong_answer](./assets/images/wrong_answer.png)
+![wrong_answer](./assets/images/wrong_answer.png)
 
 When the quiz is finished, the user can store their initials in local storage or try again.
 
-!alt[finish](./assets/images/finish.png)
+![finish](./assets/images/finish.png)
 
 After storing initials, the user can view their and any other scores stored in the system. They can also clear the highscores or return to the start of the quiz.
 
-!alt[highscores](./assets/images/highscores.png)
+![highscores](./assets/images/highscores.png)
 
