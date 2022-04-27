@@ -47,4 +47,5 @@ After storing initials, the user can view their and any other scores stored in t
 
 Deployed website can be found at: https://aditore.github.io/codeQuiz</br>
 </br>
-Code by: [aditore](https://github.com/aditore)
+Code by: Anthony Ditore</br>
+Github: [aditore](https://github.com/aditore)
